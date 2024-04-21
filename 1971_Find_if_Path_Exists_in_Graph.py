@@ -47,12 +47,9 @@ class Solution:
                 else:
                     return 0
 
-            def is_connected(self, source, destination):
-                return self.root(source) == self.root(destination)
-
         union_find = UnionFind(n, edges)
 
-        return union_find.is_connected(source, destination)
+        return union_find.root(source) == union_find.root(destination)
 
 
 solution = Solution()
