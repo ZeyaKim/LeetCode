@@ -13,11 +13,9 @@ class Solution:
                 self.create(edges)
 
             def root(self, node):
-                parent = self.parents[node]
-                if parent == node:
-                    return parent
-
-                return self.root(parent)
+                if self.parents[node] != node:
+                    self.parents[node] = self.root(self.parents[node])
+                return self.parents[node]
 
             def union(self, start, end):
                 root_start = self.root(start)
